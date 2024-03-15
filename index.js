@@ -1,11 +1,13 @@
-const http = require("node:http");
-const axios = require("axios");
+import { createServer } from "node:http";
 
 const hostname = "127.0.0.1";
-const port = 8000;
+const port = 3001;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
+const server = createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, {});
+  }
+
   res.setHeader("Content-Type", "text/plain");
   res.end("Hello World\n");
 });
