@@ -4,7 +4,6 @@ import path from "node:path";
 import { fileURLToPath } from "url";
 
 const hostname = "127.0.0.1";
-const port = 3001;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -35,6 +34,7 @@ const server = createServer((req, res) => {
   }
 });
 
+const port = process.env.PORT || 3000;
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
